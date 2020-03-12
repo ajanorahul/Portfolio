@@ -1,0 +1,204 @@
+{% extends "base.html"%}
+{% load static %}
+{% block body_block %}
+
+  <!-- Start Header -->
+   <header>
+   	  <div class="container">
+   	  	  <div class="logo">
+   	  	  	  <a href="#home"><span>G</span>RP</a>
+   	  	  </div>
+   	  	  <div class="trigger-main">
+   	  	  	 <a href="javascript:void(0);" class="ham-burger">
+   	  	  	 	 <span></span>
+   	  	  	 	 <span></span>
+   	  	  	 </a>
+   	  	  </div>
+   	  	  <div class="navbar">
+   	  	  	  <ul>
+   	  	  	  	  <li><a href="#about">About</a></li>
+   	  	  	  	  <li><a href="#services">Services</a></li>
+   	  	  	  	  <li><a href="#portfolio">Portfolio</a></li>
+   	  	  	  	  <li><a href="/contact">Contact</a></li>
+   	  	  	  </ul>
+   	  	  </div>
+   	  </div>
+   </header>
+  <!-- End Header -->
+
+  <!-- Start Home -->
+    <section class="home" id="home" style="background: url('{%static 'images/hi1.jpg'%}')">
+       <div class="container">
+
+       	   <div class="home-text">
+       	   	     <h1>Hi, I'm GR Pokhrel</h1>
+       	   	     <h3>Web Developer | Graphic Designer</h3><br>
+                 <br>
+                 <a href="#skills"<button type="button ml-2" class="btn-light">Skills</button></a>
+                 <a href="https://github.com/ajanorahul"><button type="button" class="btn-bg">Github</button></a>
+
+       	   </div>
+       </div>
+    </section>
+  <!-- End Home -->
+
+  <!-- Start About -->
+    <section class="about" id="about">
+       <div class="container">
+       	  <h2 class="title">About Me</h2>
+            {% for about in about %}
+       	  <div class="about-content">
+
+       	  	  <div class="img">
+       	  	  	 <img src="{{about.img.url}}"alt="me">
+       	  	  </div>
+       	  	  <div class="description">
+       	  	  	  <h4>{{about.title}}</h4>
+       	  	  	  <h5>{{about.subtitle}}</h5>
+       	  	  	  <p>{{about.discription}}</p>
+       	  	  	  <p>
+       	  	  	  	<!-- <a href="https://mail.yahoo.com/d/folders/1"><button type="button" class="btn-bg">Donwload CV</button></a> -->
+       	  	  	  	<a href="#contact"<button type="button" class="btn-light">Hire Me</button></a>
+       	  	  	  </p>
+       	  	  </div>
+       	  </div>
+          {% endfor %}
+       </div>
+    </section>
+  <!-- End About -->
+
+  <!-- Start Portfolio -->
+     <section class="portfolio" id="portfolio">
+       <div class="container">
+          <h2 class="title">Portfolio</h2>
+
+           {% for port in port  %}
+          <div class="portfolio-content">
+             <div class="card">
+                 <div class="box">
+                     <a href="{{port.href}}">
+                     <h3>{{port.portfolio_title}}</h3>
+                     <h4>{{port.category}}</h4>
+                     <a href="{{port.href}}">
+                     <img src="{{port.portfolio_image.url}}" alt="portfolio"/></a>
+                 </div>
+             </div>
+
+          </div>
+          {% endfor %}
+       </div>
+     </section>
+  <!-- End Portfolio -->
+
+  <!-- Start Skills -->
+   <section class="skills" id="skills">
+     <div class="container">
+        <h2 class="title">Skills</h2>
+        <div class="skills-content">
+          <div class="card">
+                <label>FrontEnd-Html5</label>
+                   <div class="progress" data-text="90%">
+                       <div class="inner"  style="width: 90%">
+                       </div>
+                   </div>
+          </div>
+          <div class="card">
+                <label>FrontEnd-Css</label>
+                   <div class="progress" data-text="70%">
+                       <div class="inner"  style="width: 70%">
+                       </div>
+                   </div>
+          </div>
+
+          <div class="card">
+                <label>FrontEnd-Bootstarp</label>
+                   <div class="progress" data-text="70%">
+                       <div class="inner"  style="width: 70%">
+                       </div>
+                   </div>
+          </div>
+
+          <div class="card">
+                <label>PHP-LARAVEL</label>
+                   <div class="progress" data-text="70%">
+                       <div class="inner"  style="width: 70%">
+                       </div>
+                   </div>
+          </div>
+
+          <div class="card">
+                <label>Python-DJANGO</label>
+                   <div class="progress" data-text="70%">
+                       <div class="inner"  style="width: 70%">
+                       </div>
+                   </div>
+          </div>
+
+        </div>
+     </div>
+  </section>
+  <!-- End Skills -->
+
+  <!-- Start Service -->
+    <section class="services" id="services">
+    	<div class="container">
+    		 <h2 class="title">Services</h2>
+    		 <div class="services-content">
+    		 	 <!-- <div class="card">
+    		 	 	  <div class="box">
+    		 	 	  	  <div class="icon">
+    		 	 	  	  	 <span class="fa fa-laptop"></span>
+    		 	 	  	  </div>
+    		 	 	  	  <h3>Web Development</h3>
+    		 	 	  	  <p>Lorem ipsum dolor sit amet, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+    		 	 	  </div>
+    		 	 </div>
+    		 	 <div class="card">
+    		 	 	  <div class="box">
+    		 	 	  	  <div class="icon">
+    		 	 	  	  	 <span class="fa fa-mobile"></span>
+    		 	 	  	  </div>
+    		 	 	  	  <h3>Responsive Design</h3>
+    		 	 	  	  <p>Lorem ipsum dolor sit amet, ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</p>
+    		 	 	  </div>
+    		 	 </div> -->
+           {% for serve in serve %}
+    		 	 <div class="card">
+    		 	 	  <div class="box">
+    		 	 	  	  <div class="icon">
+                    <span><img src="{{serve.icon.url}}" alt=""></span>
+    		 	 	  	  	 <!-- <span class="fa fa-pencil"></span> -->
+    		 	 	  	  </div>
+    		 	 	  	  <h3>{{serve.title}}</h3>
+    		 	 	  	  <p>{{serve.disc }}</p>
+    		 	 	  </div>
+    		 	 </div>
+           {% endfor %}
+    		 </div>
+    	</div>
+    </section>
+ <!-- End Service -->
+
+
+
+ <!-- Start Contact -->
+   <!-- <section class="contact" id="contact">
+   	 <div class="container">
+   	 	  <h2 class="title">Contact Us</h2>
+   	 	  <div class="contact-content">
+   	 	  	  <form method="post" action="{% url 'index' %}">
+              {% csrf_token %}
+   	 	  	  	 <input type="text" placeholder="Name" name="name">
+   	 	  	  	 <input type="text" placeholder="Email" name="email">
+   	 	  	  	 <textarea placeholder="Message" name="message"></textarea>
+   	 	  	  	 <button class="btn-light">Send Message</button>
+   	 	  	  </form>
+   	 	  </div>
+   	 </div>
+   </section> -->
+ <!-- End Contact -->
+
+ <!-- Start Footer -->
+
+ <!-- End Footer -->
+ {% endblock %}

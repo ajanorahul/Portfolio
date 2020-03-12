@@ -1,0 +1,34 @@
+{% extends "base.html"%}
+{% block body_block %}
+
+<header>
+   <div class="container">
+       <div class="logo">
+           <a href="/"><span>G</span>RP</a>
+       </div>
+       <div class="trigger-main">
+          <a href="javascript:void(0);" class="ham-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+       </div>
+
+</header>
+
+<section class="contact" id="contact">
+  <div class="container">
+     <h2 class="title">Contact Us</h2>
+     <div class="contact-content">
+         <form method="post" action="{% url 'contact' %}">
+           {% csrf_token %}
+            <input type="text" placeholder="Name" name="name">
+            <input type="text" placeholder="Email" name="email">
+            <textarea placeholder="Message" name="message"></textarea>
+            <button class="btn-light">Send Message</button>
+         </form>
+     </div>
+  </div>
+</section>
+
+{% endblock %}

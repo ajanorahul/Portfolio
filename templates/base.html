@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+{% static "images" as baseUrl %}
+
+<html>
+<head>
+  <title>Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+</head>
+<body>
+
+ {% block body_block %}
+ {% endblock %}
+
+ {% include "footer.html" %}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+		var bottom=$("header").outerHeight();
+		var header=$("header").offset().top + bottom;
+     $(window).scroll(function(){
+          // header fixed only when window width greater than 991px
+         if($(window).width()>991){
+     	if($(window).scrollTop()>=header){
+     		$("header").addClass("sticky")
+     	}
+     	else{
+     	 $("header").removeClass("sticky")
+     	}
+     }
+     })
+
+     // navbar active link
+
+     $(".navbar ul li a").click(function(){
+     	 $(".navbar ul li a").removeClass("active")
+     	 $(this).addClass("active");
+     })
+
+    $(".ham-burger").click(function(){
+    	$(this).toggleClass("active")
+    	$(".navbar").toggleClass("open");
+    })
+
+	})
+
+</script>
+
+</body>
+</html>
